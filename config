@@ -1,0 +1,59 @@
+# ────── Newsboat Configuration ────── #
+# Enhanced for Visual Clarity and Efficient Navigation
+
+# ─── Auto-Reload and Threading ─── #
+auto-reload yes
+reload-time 60                        # Refresh feeds every 60 minutes
+reload-threads 4                      # Parallel thread count for faster loading
+
+# ─── Navigation Adjusted for Colemak ─── #
+bind-key n down                       # Colemak key for navigating down
+bind-key e up                         # Colemak key for navigating up
+bind-key N next-feed                  # Move to the next feed
+bind-key E prev-feed                  # Move to the previous feed
+
+# ─── Display and Article Management ─── #
+show-read-articles no                 # Only display unread articles
+show-read-feeds no                    # Only display feeds with unread articles
+max-items 200                         # Limit to 200 articles per feed
+
+# ─── Enhanced Feed and Article List Formatting ─── #
+# Feed List Format: Feed title, unread count, total count, last updated time
+feedlist-format "%?u?[*] %-20t %?u?%-4u&? %> %d"  # Show * for feeds with unread articles
+
+# Article List Format: Index, flags, relative time, title
+articlelist-format "%?u?*%?*| %-3i %-8D %-4f %t"  # Show * for unread articles and flag with time
+
+# ─── Colors for Enhanced Readability ─── #
+color info white black
+color listfocus white blue                # Highlight selected item
+color listnormal cyan black               # Regular items in list
+
+# Highlight for readability
+highlight article "https?://[^ ]+" blue   # Highlight URLs in blue
+highlight article "^(Feed|Title|Author|Link|Date):.*" green # Metadata labels in green
+
+# ─── Notifications ─── #
+notify-program "notify-send 'Newsboat' 'New articles available!'"
+notify-always yes                         # Always notify on new articles
+
+# ─── Browser and Article Saving ─── #
+browser "firefox %u"                      # Use Firefox to open articles
+save-path ~/Newsboat/Saved                # Directory to save articles
+
+# ─── Filtering and Custom Macros ─── #
+macro u set-filter "unread = yes"         # Filter to show only unread articles
+macro a clear-filter                      # Clear filters and show all articles
+macro s save                              # Save the current article
+macro m mark-feed-read                    # Mark all articles in the feed as read
+macro o open-all-unread-in-browser        # Open all unread articles in the browser
+
+# ─── Additional Settings ─── #
+confirm-exit no                           # Disable exit confirmation
+cleanup-on-quit yes                       # Clean up cache on quit to save space
+refresh-on-startup yes                    # Refresh all feeds on startup
+
+# ─────────────────────────── #
+# End of Configuration        #
+# ─────────────────────────── #
+
